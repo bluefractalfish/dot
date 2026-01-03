@@ -1,0 +1,173 @@
+@define-color blk #121217;
+@define-color wht #EEEEEE;
+@define-color red #FF5E33; 
+
+@define-color yel #FFC915;
+@define-color grn #B7CF47;
+@define-color blu #89CFF0;
+
+* {
+    font-family: "Agave Nerd Font", "bold";
+    font-size: 13px;
+}
+
+window#waybar {
+    background-color: transparent;
+    transition-property: background-color;
+    transition-duration: .5s;
+}
+
+#workspaces button{
+  color: @wht;
+  margin: 0px 0px 0px 0px;
+  padding: 3px;
+  font-weight: 100;
+  background-color: transparent;
+}
+
+
+#workspaces button.visible {
+  font-weight: bold;
+  color: white;
+}
+
+#custom-cpu_graph {
+  font-weight: bold;
+  border: 1px solid;
+  margin: 7px 0px 7px 0px;
+  padding: 3px;
+  color: @wht;
+  
+}
+#custom-cpu_graph:hover {
+  color: white;
+  border-radius: 1px;
+}
+
+#custom-memory_graph {
+  font-weight: bold;
+  color: @wht;
+}
+#custom-timer {
+  border: 1px solid;
+  margin: 7px 5px 7px 5px;
+  padding: 3px;
+  color: @wht;
+}
+#custom-timer:hover{
+  color: @blk;
+  background: @wht;
+  font-weight: bold;
+}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#network,
+#pulseaudio,
+#window,
+#workspaces,
+#custom-timer
+
+
+#pulseaudio {
+  font-weight:300;
+  color: @wht; 
+}
+
+#pulseaudio:hover {
+    font-weight: bold;
+    color: @wht;
+}
+
+#clock {
+  color: black;
+  background: white;
+  margin: 7px 0px 7px 0px;
+  padding: 3px;
+  font-weight: bold;
+}
+
+#battery {
+    color: black;
+    background: white;
+    margin: 7px 0px 7px 0px;
+    padding: 3px;
+    font-weight: bold;
+}
+
+#battery.charging, #battery.plugged {
+    color: black;
+    background: @grn;
+    font-weight: bold;
+    animation-name: blink;
+    animation-duration: 1.5s;
+    animation-timing-function: steps(50);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes blink {
+    to {
+        background-color: #000000; 
+        color: white;
+    }
+}
+
+#battery.critical:not(.charging) {
+    color: @red;
+    border-radius: 1px;
+    font-weight: bold;
+    animation-name: blink;
+    animation-duration: 2s;
+    animation-timing-function: steps(50);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+
+#cpu {
+    background-color: transparent;
+    /*font-weight: bold;*/
+}
+
+#memory {
+    background-color: transparent;
+    color: #aaaaaa;
+    font-weight: 200;
+}
+
+#disk {
+  color: #aaaaaa;
+  font-weight: 300;
+}
+
+#network:hover {
+	color: @red;
+	font-weight: 300;
+}
+#network {
+	color: @wht;
+  margin: 6px 5px 7px 5px;
+  padding: 3px;
+  border: 1px solid;
+	font-weight: 900;
+}
+
+#network.disconnected {
+	color: @red;
+	font-weight: bold;
+}
+
+#temperature {
+    font-weight: 300;
+    color: #aaaaaa;
+    background-color: transparent;
+}
+
+#temperature.critical {
+    color: @red;
+}

@@ -1,0 +1,92 @@
+{
+  "custom/cpu_graph": {
+    "format": "{}",
+    "exec": "~/.config/waybar/scripts/cpu_graph.sh",
+    "interval": 1
+  },
+
+
+  "custom/timer": {
+    "format": "{}",
+    "exec": "~/.config/waybar/scripts/timer.sh",
+    "interval": 1,
+
+    "on-click": "~/.config/waybar/scripts/timer.sh toggle",
+    "on-click-right": "~/.config/waybar/scripts/timer.sh reset"
+  },
+
+  "custom/uptime": {
+    "format": "{}",
+    "exec": "~/.config/waybar/scripts/uptime.sh",
+    "interval": 1
+  },
+
+    "clock": {
+        "format": "{:%H:%M:%S}",
+        "tooltip-format": "<big>{:pY pB}</big>\n<tt><small>{calendar}</small></tt>",
+        "format-alt": "{:pY-pm-pd}",
+        "interval":1
+    },
+    
+    "disk": {
+	      "path": "/",
+	      "format":" {specific_free:0.2f} ",
+        "unit": "GiB"
+    },
+
+    "cpu": {
+        "format": "{usage}%",
+        "tooltip": false
+    },
+    
+    "memory": {
+        "format": "{used:0.1f} "
+    },
+
+    "temperature": {
+        "critical-threshold": 80,
+        "format": "{temperatureC}C",
+        "format-icons": ["", "", ""]
+    },
+    
+    "battery": {
+        "states": {
+            // "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "-{capacity}",
+        "format-full": "FULL",
+        "format-charging": "+{capacity}",
+        "interval":1,
+        "format-plugged": "{capacity}",
+        "format-alt": "{time} {icon}",
+    },
+
+    "network": {
+        "format-wifi": "{ipaddr}", 
+        "format-ethernet": "{ipaddr}/{cidr}",
+        "tooltip-format": "{ifname} via {gwaddr}",
+        "format-linked": "{ifname} (No IP)",
+        "format-disconnected":"DISCONNECTED",
+        "format-alt": "{ifname}:{cidr}:{essid}:{signalStrength}"
+     },
+
+     "pulseaudio#audio": {
+         "format": "{volume}",
+          "format-muted": "OFF",
+          "format-icons": {
+            "headphone": "hf",
+            "default": ["","",""]
+          },
+      "scroll-step": 0.01,
+      "on-click": "pavucontrol",
+      "on-click-middle": "pavucontrol",
+      "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +1%",
+      "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -1%",
+      "tooltip": true
+},
+   "hyprland/workspaces": {
+       "format":"/{name}"
+}
+}
