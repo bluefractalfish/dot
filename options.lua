@@ -1,20 +1,117 @@
  
-vim.opt.clipboard = 'unnamedplus' -- use system keyboard for yank
+local opt = vim.opt
+local g = vim.g
+
+opt.clipboard = 'unnamedplus' -- use system keyboard for yank
+
  
-vim.opt.nu = true                 -- set line numbers -- set line numbers
-vim.opt.relativenumber = true     -- use relative line numbers
+opt.nu = true                 -- set line numbers -- set line numbers
+opt.relativenumber = true     -- use relative line numbers
 vim.o.cursorline = true
  
 -- set tab size to 2 spaces
-vim.opt.tabstop = 2
-vim.opt.softtabstop = 2
-vim.opt.shiftwidth = 2
-vim.opt.expandtab = true
-vim.opt.smartindent = true
+opt.tabstop = 2
+opt.softtabstop = 2
+opt.shiftwidth = 2
+opt.expandtab = true
+opt.smartindent = true
  
-vim.opt.wrap = false
+opt.wrap = false
  
-vim.opt.incsearch = true -- incremental search
+opt.incsearch = true -- incremental search
  
-vim.opt.termguicolors = true
+opt.termguicolors = true
 
+--------------------------------------------------
+-- General UI
+--------------------------------------------------
+
+opt.number = true
+opt.relativenumber = true
+opt.cursorline = true
+opt.signcolumn = "yes"
+opt.termguicolors = true
+opt.wrap = false
+opt.scrolloff = 8
+opt.sidescrolloff = 8
+opt.colorcolumn = "88"
+
+--------------------------------------------------
+-- Splits
+--------------------------------------------------
+
+opt.splitright = true
+opt.splitbelow = true
+
+--------------------------------------------------
+-- Tabs / indentation
+--------------------------------------------------
+
+opt.tabstop = 4
+opt.shiftwidth = 4
+opt.softtabstop = 4
+opt.expandtab = true
+opt.smartindent = true
+opt.autoindent = true
+
+--------------------------------------------------
+-- Search
+--------------------------------------------------
+
+opt.ignorecase = true
+opt.smartcase = true
+opt.incsearch = true
+opt.hlsearch = true
+
+--------------------------------------------------
+-- Completion behavior
+--------------------------------------------------
+
+opt.completeopt = { "menu", "menuone", "noselect" }
+opt.pumheight = 10
+
+--------------------------------------------------
+-- Files / backups / undo
+--------------------------------------------------
+
+opt.swapfile = false
+opt.backup = false
+opt.writebackup = false
+opt.undofile = true
+
+--------------------------------------------------
+-- Performance / responsiveness
+--------------------------------------------------
+
+opt.updatetime = 200
+opt.timeoutlen = 300
+
+--------------------------------------------------
+-- Clipboard
+--------------------------------------------------
+
+
+--------------------------------------------------
+-- Whitespace / display
+--------------------------------------------------
+
+opt.list = true
+opt.listchars = {
+  tab = "> ",
+  trail = "·",
+  nbsp = "␣",
+}
+
+--------------------------------------------------
+-- Better command line
+--------------------------------------------------
+
+opt.cmdheight = 1
+opt.showmode = false
+
+-- folding?
+opt.foldmethod="indent"
+opt.foldexpr="nvim_treesitter#foldexpr()"
+opt.foldlevel=99
+opt.foldlevelstart=99
+opt.foldenable=true
